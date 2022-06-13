@@ -4,6 +4,18 @@ class PhotographerCard {
         this.$wrapper = document.createElement('article')
     }
 
+    onCardImageClick() {
+        this.$wrapper.querySelector('img').addEventListener('click', () => {
+            location.href = 'photographer.html?id=' + this._photographer._id
+        });
+    }
+
+    onCardNameClick() {
+        this.$wrapper.querySelector('h2').addEventListener('click', () => {
+            location.href = 'photographer.html?id=' + this._photographer._id
+        });
+    }
+
     createPhotographerCard() {
         const photographerCard = `
                                     <img src="assets/photographers/${this._photographer._portrait}">
@@ -16,6 +28,9 @@ class PhotographerCard {
                                 `
 
         this.$wrapper.innerHTML = photographerCard
+
+        this.onCardImageClick();
+        this.onCardNameClick();
 
         return this.$wrapper
     }

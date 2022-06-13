@@ -6,6 +6,7 @@ class Photographer {
         this._tagline = data.tagline
         this._price = data.price
         this._portrait = data.portrait
+        this._id = data.id
     }
 
     get getName() {
@@ -30,5 +31,9 @@ class Photographer {
 
     get getPortrait() {
         return this._portrait
+    }
+
+    get getId() {
+        return $this._id
     }
 }
