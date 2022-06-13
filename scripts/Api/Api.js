@@ -9,3 +9,13 @@ class Api {
                 catch(error => console.log('une erreur se produit', error))
     }
 }
+
+class PhotographerApi {
+    constructor(url) {
+        super(url)
+    }
+
+    async getPhotographers() {
+        return await this.get()
+    }
+}
