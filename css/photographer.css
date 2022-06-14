@@ -4,6 +4,9 @@
 
 #contact_modal {
     display: none;
+    position: fixed;
+    top: 50px;
+    width: 100%;
 }
 
 .filter {
@@ -124,7 +127,7 @@ form input {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    right: 0px;
+    right: 30px;
     padding: 15px;
     background: #DB8876;
 }
@@ -279,4 +282,12 @@ body.has-open-lightbox {
 .like-count .light
 {
     display: inline
-} 
+}
+
+.contact-photographer-name {
+    font-weight: lighter;
+    text-align: left;
+    width: 100%;
+    font-size: 64px;
+    margin-top: 20px;
+}
