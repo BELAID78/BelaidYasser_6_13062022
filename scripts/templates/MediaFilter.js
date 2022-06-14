@@ -15,7 +15,7 @@ class MediaFilter {
 
     createMedias() {
         let mediaContent = ``;
-        const photographerName = this.directoriesName.find(name => this._photographer._name.includes(name))
+        const photographerName = this.directoriesName.find(name => this._photographer._name.replace('-', ' ').includes(name))
         let filterValue = 'date';
 
         this._medias.
