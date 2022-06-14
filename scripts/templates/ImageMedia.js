@@ -7,7 +7,7 @@ class ImageMedia {
     render() {
         return `
                 <div>
-                    <img src="assets/media/${this._photographerName}/${this._media._image}" />
+                    <img class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._image}" />
                     
                     <div>
                         <p>${this._media._title}</p>
@@ -19,4 +19,4 @@ class ImageMedia {
                 </div>
             `
     }
-} 
+}

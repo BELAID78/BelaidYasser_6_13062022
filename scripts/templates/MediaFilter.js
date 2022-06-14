@@ -1,8 +1,11 @@
 class MediaFilter {
     constructor(medias, photographer) {
         this._medias        = medias
+
         this._photographer  = photographer
+
         this.$wrapper       = document.querySelector('.media-filter-container')
+
         this.directoriesName= [
             'Ellie Rose',
             'Marcel',
@@ -11,6 +14,9 @@ class MediaFilter {
             'Rhode',
             'Tracy',
         ]
+
+        this._mediasDirectoryName = '';
+
         this._totalLikes = 0
 
         this._select = {
@@ -20,6 +26,9 @@ class MediaFilter {
             ],
             selected: 'likes' 
         }
+
+        this._lightboxModal = new LightboxModal(this._medias);
+
     }
 
     createTotalLikes(totalLikes, price) {
@@ -41,9 +50,9 @@ class MediaFilter {
     filterBy(filterType, data) {
         data.sort( (a,b) => {
             switch(filterType) {
-                case 'likes'    : return a.likes - b.likes;
-                case 'date'     : return new Date(a.date) > new Date(b.date) ? 1 : (new Date(a.date) < new Date(b.date) ? -1 : 0);
-                case 'title'    : return a.title > b.title ? 1 : (a.title < b.title ? -1 : 0);
+                case 'likes'    : return b.likes - a.likes;
+                case 'date'     : return new Date(b.date) > new Date(a.date) ? 1 : (new Date(b.date) <  new Date(a.date) ? -1 : 0);
+                case 'title'    : return b.title > a.title ? 1 : (b.title < a.title ? -1 : 0);
             }
         })
 
@@ -54,6 +63,9 @@ class MediaFilter {
         const photographerName  =   this.directoriesName.find(
                                         name => this._photographer._name.replace('-', ' ').includes(name)
                                     );
+
+        this._mediasDirectoryName = photographerName;
+
         let mediaContent        =   ``,
             filterValue         = this._select.selected;
 
@@ -87,17 +99,17 @@ class MediaFilter {
     }
 
     reRenderMedias() {
-        //document.querySelector('select').removeEventListener('change')
-
-        //remove the media content
         document.querySelector('.media-filter-container').innerHTML = '';
 
         this.$wrapper = document.querySelector('.media-filter-container');
 
-        //re render
         this.$wrapper.innerHTML = this.createMediaFilter();
 
         this.selectFilterChange()
+
+        this.clickOnMediaHandler()
+
+        this._lightboxModal.render()
     }
 
     selectFilterChange() {
@@ -122,9 +134,24 @@ class MediaFilter {
         `
     }
 
+    clickOnMediaHandler() {
+        const mediasCanBeClicked = document.querySelectorAll('.show-in-light-box')
+
+        mediasCanBeClicked.forEach( (media, index) => {
+            const mediaId       = media.getAttribute('media-id'),
+                  mediaIndex    = index;
+
+            media.addEventListener('click', () => {
+                this._lightboxModal.showLightBox(mediaId, mediaIndex, this._mediasDirectoryName);
+            });
+        })
+    }
+
     render() {
         this.$wrapper.innerHTML = this.createMediaFilter();
         this.createTotalLikes(this._totalLikes, this._photographer._price);
         this.selectFilterChange()
+        this.clickOnMediaHandler()
+        this._lightboxModal.render()
     }
 }

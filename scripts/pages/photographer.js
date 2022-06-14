@@ -15,6 +15,8 @@ class PhotographerPage {
 
         new MediaFilter(medias, new Photographer(photographer)).render()
         
+        //render all the modal
+        
     }
 }
 

@@ -46,9 +46,8 @@
 
 .media-content > div img,
 .media-content > div video {
-    width: calc(100% - 100px);
+    width: 100%;
     height: auto;
-    padding: 0px 50px;
     cursor: pointer;
 }
 
@@ -117,7 +116,9 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
-}.total-likes-container {
+}
+
+.total-likes-container {
     width: 300Px;
     position: fixed;
     bottom: 0px;
@@ -146,4 +147,103 @@ form input {
 .filter p,
 .filter div {
     display: inline-block;
+}
+
+.lightbox-modal.show {
+    display: block;
+}
+
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 99999;
+    background: #c7c7c7c2;
+}
+
+.lightbox-modal .lightbox-modal-header {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.lightbox-modal .lightbox-modal-header .lightbox-close {
+    cursor: pointer;
+    color: #901C1C;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
+.lightbox-modal .lightbox-modal-header .lightbox-close:hover {
+    opacity: 0.7;
+}
+
+body.has-open-lightbox {
+    overflow: hidden;
+}
+
+.lightbox-modal .lightbox-modal-content {
+    background: white;
+    height: calc(100vh - 160px);
+    width: calc(100% - 160px);
+    box-shadow: 0px 1px 3px #a5a5a5;
+    top: 80px;
+    position: relative;
+    left: 80px;
+}
+
+.lightbox-modal-body {
+    width: calc(100% - 160px);
+    height: calc(100% - 80px);
+    position: relative;
+    left: 80px;
+    top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lightbox-modal-body img, 
+.lightbox-modal-body video {
+    width: auto;
+    height: 100%;
+}
+
+.lightbox-modal-pagination {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.lightbox-modal-arrow-left,
+.lightbox-modal-arrow-right {
+    font-size: 26px;
+    color: #901C1C;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.lightbox-modal-arrow-left:hover,
+.lightbox-modal-arrow-right:hover {
+    opacity: 0.7;
+}
+
+.lightbox-modal-arrow-left {
+    position: absolute;
+    left: 20px;
+}
+
+.lightbox-modal-arrow-right{
+    position: absolute;
+    right: 20px;
+}
+
+.lightbox-modal-body span {
+    position: absolute;
+    bottom: -25px;
+    color: #901C1C;
 }
