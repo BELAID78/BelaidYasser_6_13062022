@@ -6,16 +6,26 @@ class Api {
     async get() {
         return  fetch(this._url).
                 then(response => response.json()).
-                catch(error => console.log('une erreur se produit', error))
+                catch(error => console.log('an error occurs', error))
     }
 }
 
-class PhotographerApi extends Api{
+class PhotographerApi extends Api {
     constructor(url) {
         super(url)
     }
 
     async getPhotographers() {
+        return await this.get()
+    }
+}
+
+class MediaApi extends Api {
+    constructor(url) {
+        super(url)
+    }
+
+    async getMedias() {
         return await this.get()
     }
 }

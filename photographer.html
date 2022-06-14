@@ -9,19 +9,23 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo"/>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        
+      </div>
+      <div class="media-filter-container">
+            
       </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer"/>
         </header>
+        
 				<form>
 					<div>
 						<label>Prénom</label>
@@ -32,7 +36,14 @@
 			</div>
 		</div>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/api/Api.js"></script>
+    <script src="scripts/templates/PhotographerHeader.js"></script>
+    <script src="scripts/models/Photographer.js"></script>
+    <script src="scripts/models/Media.js"></script>
+    <script src="scripts/templates/MediaFilter.js"></script>
+    <script src="/scripts/templates/ImageMedia.js"></script>
+    <script src="/scripts/templates/VideoMedia.js"></script>
+    <script src="/scripts/factories/MediaFactory.js"></script>
     <script src="scripts/pages/photographer.js"></script>
-
   </body>
 </html>

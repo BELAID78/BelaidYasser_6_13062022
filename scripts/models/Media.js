@@ -1,12 +1,13 @@
 class Media {
     constructor(data) {
-        this._id            = data.id
-        this.photographerId = data.photographerId
-        this.title          = data.title
-        this.image          = data.image
-        this.likes          = data.likes
-        this.date           = data.date
-        this.price          = data.price
+        this._id                = data.id
+        this._photographerId    = data.photographerId
+        this._title             = data.title
+        this._image             = data.image
+        this._likes             = data.likes
+        this._date              = data.date
+        this._price             = data.price
+        this._video             = data.video
     }
 
     get getId() {
@@ -23,6 +24,10 @@ class Media {
 
     get getImage() {
         return this._image
+    }
+
+    get getVideo() {
+        return this._video
     }
 
     get getLikes() {
