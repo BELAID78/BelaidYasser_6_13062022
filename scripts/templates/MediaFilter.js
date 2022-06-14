@@ -12,6 +12,14 @@ class MediaFilter {
             'Tracy',
         ]
         this._totalLikes = 0
+
+        this._select = {
+            opened: false,
+            options: [
+                'likes', 'date', 'title'
+            ],
+            selected: 'likes' 
+        }
     }
 
     createTotalLikes(totalLikes, price) {
@@ -30,22 +38,32 @@ class MediaFilter {
         document.body.innerHTML += totalLikesWrapper;
     }
 
-    createMedias() {
-        let mediaContent = ``;
-        const photographerName = this.directoriesName.find(name => this._photographer._name.replace('-', ' ').includes(name))
-        let filterValue = 'date';
-
-        this._medias.
-        sort( (a,b) => {
-            switch(filterValue) {
+    filterBy(filterType, data) {
+        data.sort( (a,b) => {
+            switch(filterType) {
                 case 'likes'    : return a.likes - b.likes;
                 case 'date'     : return new Date(a.date) > new Date(b.date) ? 1 : (new Date(a.date) < new Date(b.date) ? -1 : 0);
-                case 'titre'    : return a.title > b.title ? 1 : (a.title < b.title ? -1 : 0);
+                case 'title'    : return a.title > b.title ? 1 : (a.title < b.title ? -1 : 0);
             }
         })
-        .map(media => {
+
+        return data
+    }
+
+    createMedias() {
+        const photographerName  =   this.directoriesName.find(
+                                        name => this._photographer._name.replace('-', ' ').includes(name)
+                                    );
+        let mediaContent        =   ``,
+            filterValue         = this._select.selected;
+
+        this._medias = this.filterBy(filterValue, this._medias);
+
+        this._medias.map(media => {
             let mediaData = new Media(media)
+
             mediaContent += new MediaFactory(mediaData, photographerName).render()
+
             this._totalLikes += media.likes
         });
 
@@ -53,11 +71,44 @@ class MediaFilter {
     }
 
     createSelectFilter() {
+        let options = ``;
+
+        this._select.options.forEach(option => {
+            options += `<option value="${option}" ${this._select.selected === option ? 'selected' : ''} >${option}</option>`
+        });
+
         return `
-            <div class="">
+            <div class="select-container">
+                <select>
+                    ${options}
+                </select>
             </div>
         `
     }
+
+    reRenderMedias() {
+        //document.querySelector('select').removeEventListener('change')
+
+        //remove the media content
+        document.querySelector('.media-filter-container').innerHTML = '';
+
+        this.$wrapper = document.querySelector('.media-filter-container');
+
+        //re render
+        this.$wrapper.innerHTML = this.createMediaFilter();
+
+        this.selectFilterChange()
+    }
+
+    selectFilterChange() {
+        document.querySelector('select').addEventListener('change', (e) => {
+
+            this._select.selected = e.target.value;
+
+            this.reRenderMedias()
+        });
+    }
+
 
     createMediaFilter() {
         return `
@@ -74,5 +125,6 @@ class MediaFilter {
     render() {
         this.$wrapper.innerHTML = this.createMediaFilter();
         this.createTotalLikes(this._totalLikes, this._photographer._price);
+        this.selectFilterChange()
     }
 }

@@ -133,3 +133,17 @@ form input {
 .total-likes-container span {
     font-weight: bolder;
 }
+
+.select-container select {
+    background: #901C1C;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.filter p,
+.filter div {
+    display: inline-block;
+}
