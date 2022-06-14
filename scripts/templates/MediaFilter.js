@@ -36,7 +36,7 @@ class MediaFilter {
             <div class="total-likes-container">
                 <div>
                     <span>${totalLikes}</span>
-                    <span>icon</span>
+                    <span><i class="fas fa-heart solid"></i></span>
                 </div>
                 <div>
                     <span>${price} € / jour</span>
