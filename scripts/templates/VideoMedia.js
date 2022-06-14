@@ -7,15 +7,18 @@ class VideoMedia {
     render() {
         return `
                 <div>
-                    <video class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
-                        Your browser does not support the HTML5 Video element.
-                    </video>
+                    <div class="over-flow-the-image">
+                        <video class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
+                            Your browser does not support the HTML5 Video element.
+                        </video>
+                    </div>
                     
-                    <div>
+                    <div class="likes-title-photographer">
                         <p>${this._media._title}</p>
-                        <p>
+                        <p class="like-count">
                             <span>${this._media._likes}</span>
-                            <i></i>
+                            <i class="fas fa-heart solid"></i>
+                            <i class="fal fa-heart light"></i>
                         </p>
                     </div>
                 </div>

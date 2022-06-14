@@ -247,3 +247,38 @@ body.has-open-lightbox {
     bottom: -25px;
     color: #901C1C;
 }
+.over-flow-the-image {
+    max-height: 250px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.likes-title-photographer {
+    display: flex;
+    justify-content: space-between;
+    color: #901C1C;
+}
+
+.like-count .fa-heart {
+    cursor: pointer;
+}
+
+.like-count.active .solid
+{
+    display: inline
+}
+
+.like-count.active .light
+{
+    display: none
+}
+
+.like-count .solid
+{
+    display: none
+}
+
+.like-count .light
+{
+    display: inline
+} 

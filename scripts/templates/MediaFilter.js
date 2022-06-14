@@ -82,6 +82,26 @@ class MediaFilter {
         return mediaContent
     }
 
+    clickLikeHandler() {
+        const LikeButtons = document.querySelectorAll('.like-count .fa-heart')
+
+        LikeButtons.forEach(likeButton => {
+            likeButton.addEventListener('click', e => {
+                const   parentLikeButton = e.target.parentElement,
+                        likeTotal        = parentLikeButton.querySelector('span')
+
+                if(parentLikeButton.classList.contains('active')) {
+                    parentLikeButton.classList.remove('active')
+                    likeTotal.innerText = parseInt(likeTotal.innerText) - 1
+                }else {
+                    parentLikeButton.classList.add('active')
+                    likeTotal.innerText = parseInt(likeTotal.innerText) + 1
+                }
+            })
+        });
+
+    }
+
     createSelectFilter() {
         let options = ``;
 
@@ -152,6 +172,7 @@ class MediaFilter {
         this.createTotalLikes(this._totalLikes, this._photographer._price);
         this.selectFilterChange()
         this.clickOnMediaHandler()
+        this.clickLikeHandler()
         this._lightboxModal.render()
     }
 }
