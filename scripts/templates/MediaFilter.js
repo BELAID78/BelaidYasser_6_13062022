@@ -16,9 +16,17 @@ class MediaFilter {
     createMedias() {
         let mediaContent = ``;
         const photographerName = this.directoriesName.find(name => this._photographer._name.includes(name))
-        
+        let filterValue = 'date';
+
         this._medias.
-        map(media => {
+        sort( (a,b) => {
+            switch(filterValue) {
+                case 'likes'    : return a.likes - b.likes;
+                case 'date'     : return new Date(a.date) > new Date(b.date) ? 1 : (new Date(a.date) < new Date(b.date) ? -1 : 0);
+                case 'titre'    : return a.title > b.title ? 1 : (a.title < b.title ? -1 : 0);
+            }
+        })
+        .map(media => {
             let mediaData = new Media(media)
             mediaContent += new MediaFactory(mediaData, photographerName).render()
         });
