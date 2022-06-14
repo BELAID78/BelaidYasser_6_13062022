@@ -11,6 +11,23 @@ class MediaFilter {
             'Rhode',
             'Tracy',
         ]
+        this._totalLikes = 0
+    }
+
+    createTotalLikes(totalLikes, price) {
+        const totalLikesWrapper = `
+            <div class="total-likes-container">
+                <div>
+                    <span>${totalLikes}</span>
+                    <span>icon</span>
+                </div>
+                <div>
+                    <span>${price} € / jour</span>
+                </div>
+            </div>
+        `;
+
+        document.body.innerHTML += totalLikesWrapper;
     }
 
     createMedias() {
@@ -29,12 +46,13 @@ class MediaFilter {
         .map(media => {
             let mediaData = new Media(media)
             mediaContent += new MediaFactory(mediaData, photographerName).render()
+            this._totalLikes += media.likes
         });
 
         return mediaContent
     }
 
-    createFilter() {
+    createSelectFilter() {
         return `
             <div class="">
             </div>
@@ -45,7 +63,7 @@ class MediaFilter {
         return `
             <div class="filter">
                 <p>Trier par</p>
-                ${this.createFilter()}
+                ${this.createSelectFilter()}
             </div>
             <div class="media-content">
                 ${this.createMedias()}
@@ -55,5 +73,6 @@ class MediaFilter {
 
     render() {
         this.$wrapper.innerHTML = this.createMediaFilter();
+        this.createTotalLikes(this._totalLikes, this._photographer._price);
     }
 }
