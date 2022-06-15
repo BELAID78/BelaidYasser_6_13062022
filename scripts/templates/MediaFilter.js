@@ -22,9 +22,9 @@ class MediaFilter {
         this._select = {
             opened: false,
             options: [
-                'likes', 'date', 'title'
+                'Popularité', 'Date', 'Titre'
             ],
-            selected: 'likes' 
+            selected: 'Popularité' 
         }
 
         this._lightboxModal = new LightboxModal(this._medias);
@@ -50,9 +50,9 @@ class MediaFilter {
     filterBy(filterType, data) {
         data.sort( (a,b) => {
             switch(filterType) {
-                case 'likes'    : return b.likes - a.likes;
-                case 'date'     : return new Date(b.date) > new Date(a.date) ? 1 : (new Date(b.date) <  new Date(a.date) ? -1 : 0);
-                case 'title'    : return b.title > a.title ? 1 : (b.title < a.title ? -1 : 0);
+                case 'Popularité'   : return b.likes - a.likes;
+                case 'Date'         : return new Date(b.date) > new Date(a.date) ? 1 : (new Date(b.date) <  new Date(a.date) ? -1 : 0);
+                case 'Titre'        : return b.title > a.title ? 1 : (b.title < a.title ? -1 : 0);
             }
         })
 

@@ -52,6 +52,7 @@ h1 {
     width: 200px;
     border-radius: 100%;
     cursor: pointer;
+    object-fit: cover;
 }
 
 

@@ -11,11 +11,11 @@ class PhotographerHeader {
                 <p>${this._photographer._city}, ${this._photographer._country}</p>
                 <p>${this._photographer._tagline}</p>
             </div>
-            <div class="">
+            
             <button class="contact_button" onclick="displayModal('${this._photographer._name}')">Contactez-moi</button>
             <div>
                 <img src="assets/photographers/${this._photographer._portrait}"/>
-            </div>
+            
         `
     }
 

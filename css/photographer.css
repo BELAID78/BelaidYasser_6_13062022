@@ -19,19 +19,21 @@
     height: 300px;
     margin: 0 100px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
     align-items: center;
     justify-content: space-between;
 }
-
+.header-pic-boutton{
+    display: flex;
+}
 .photograph-header div img {
     max-width: 200px;
     max-height: 200px;
     width: 200px;
     height: 200px;
     border-radius: 100%;
+    object-fit: cover;
 }
 
 .media-content {
@@ -290,4 +292,10 @@ body.has-open-lightbox {
     width: 100%;
     font-size: 64px;
     margin-top: 20px;
+}
+
+#message{
+    width: 1132px;
+    height: 83px;
+    min-height: 100px;
 }
