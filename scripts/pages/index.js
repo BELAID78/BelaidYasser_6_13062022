@@ -1,7 +1,7 @@
 class Index {
     constructor() {
         this.$photographerWrapper   = document.querySelector(".photographer_section");
-        this.photographerApi        = new PhotographerApi('/data/photographers.json')
+        this.photographerApi        = new PhotographerApi('data/photographers.json')
     }
 
     async main() {
