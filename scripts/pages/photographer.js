@@ -2,7 +2,7 @@ class PhotographerPage {
 
     constructor() {
         this.searchId   = location.search.replace('?id=','')
-        this.dataApi    = new Api('/data/photographers.json')
+        this.dataApi    = new Api('data/photographers.json')
     }
 
     async init() {
