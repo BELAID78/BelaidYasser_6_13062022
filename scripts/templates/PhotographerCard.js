@@ -18,7 +18,7 @@ class PhotographerCard {
 
     createPhotographerCard() {
         const photographerCard = `
-                                    <img src="assets/photographers/${this._photographer._portrait}">
+                                    <img alt= "${this._photographer._name} image" title="${this._photographer._name}" src="assets/photographers/${this._photographer._portrait}">
                                     <h2>${this._photographer._name}</h2>
                                     <div class="photographer_paragraph">
                                         <h4>${this._photographer._city}, ${this._photographer._country}</h4>
