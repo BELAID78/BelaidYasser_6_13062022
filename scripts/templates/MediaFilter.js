@@ -52,7 +52,7 @@ class MediaFilter {
             switch(filterType) {
                 case 'Popularité'   : return b.likes - a.likes;
                 case 'Date'         : return new Date(b.date) > new Date(a.date) ? 1 : (new Date(b.date) <  new Date(a.date) ? -1 : 0);
-                case 'Titre'        : return b.title > a.title ? 1 : (b.title < a.title ? -1 : 0);
+                case 'Titre'        : return a.title > b.title ? 1 : (a.title < b.title ? -1 : 0);
             }
         })
 
