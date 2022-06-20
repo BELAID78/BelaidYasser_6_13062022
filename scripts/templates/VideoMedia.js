@@ -18,7 +18,7 @@ class VideoMedia {
                         <p class="like-count">
                             <span>${this._media._likes}</span>
                             <i class="fas fa-heart solid"></i>
-                            <i class="fal fa-heart light"></i>
+                            <i class="far fa-heart light"></i>
                         </p>
                     </div>
                 </div>

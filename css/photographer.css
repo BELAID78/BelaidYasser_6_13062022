@@ -4,7 +4,7 @@
 
 #contact_modal {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 50px;
     width: 100%;
 }
@@ -49,9 +49,11 @@
 
 .media-content > div img,
 .media-content > div video {
-    width: 100%;
-    height: auto;
     cursor: pointer;
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .contact_button {
@@ -70,12 +72,13 @@
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 669px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
+    padding-top: 0;
     margin: auto;
 }
 
@@ -89,7 +92,7 @@
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 46px;
     font-weight: normal;
     text-align: center;
 }
@@ -111,7 +114,6 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
 }
 
 form input {
@@ -119,6 +121,8 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 30px;
+
 }
 
 .total-likes-container {
@@ -132,6 +136,7 @@ form input {
     right: 30px;
     padding: 15px;
     background: #DB8876;
+    border-radius: 5px 5px 0px 0px
 }
 
 .total-likes-container span {
@@ -251,7 +256,7 @@ body.has-open-lightbox {
     color: #901C1C;
 }
 .over-flow-the-image {
-    max-height: 250px;
+    height: 250px;
     overflow: hidden;
     border-radius: 5px;
 }
@@ -273,7 +278,7 @@ body.has-open-lightbox {
 
 .like-count.active .light
 {
-    display: none
+    display: none;
 }
 
 .like-count .solid
@@ -290,12 +295,14 @@ body.has-open-lightbox {
     font-weight: lighter;
     text-align: left;
     width: 100%;
-    font-size: 64px;
-    margin-top: 20px;
+    font-size: 46px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #message{
-    width: 1132px;
+    min-width: 100%;
     height: 83px;
     min-height: 100px;
+    margin-bottom: 26px;
 }
