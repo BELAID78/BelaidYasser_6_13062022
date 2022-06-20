@@ -130,6 +130,8 @@ class MediaFilter {
         this.clickOnMediaHandler()
 
         this._lightboxModal.render()
+
+        this.clickLikeHandler()
     }
 
     selectFilterChange() {
