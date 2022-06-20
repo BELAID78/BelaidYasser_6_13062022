@@ -307,6 +307,8 @@ body.has-open-lightbox {
     height: 83px;
     min-height: 100px;
     margin-bottom: 26px;
+    font-size: 26px;
+    max-width: 100%;
 }
 
 .lightbox-modal-close-boutton {

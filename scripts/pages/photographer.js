@@ -7,7 +7,7 @@ class PhotographerPage {
 
     async init() {
         const data                  = await this.dataApi.get()
-        const photographer          = data.photographers.find(photographer => photographer.id == this.searchId)
+        const photographer          = data.photographers.find(photographerItem => photographerItem.id == this.searchId)
         const medias                = data.media.filter(media => media.photographerId == this.searchId);
         const photographerHeader    = new PhotographerHeader(new Photographer(photographer))
 

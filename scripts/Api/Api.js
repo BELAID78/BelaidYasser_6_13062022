@@ -16,7 +16,7 @@ class PhotographerApi extends Api {
     }
 
     async getPhotographers() {
-        return await this.get()
+        return this.get()
     }
 }
 
@@ -26,6 +26,6 @@ class MediaApi extends Api {
     }
 
     async getMedias() {
-        return await this.get()
+        return this.get()
     }
 }
