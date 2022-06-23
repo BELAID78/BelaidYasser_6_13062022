@@ -122,13 +122,13 @@ class MediaFilter {
         this._medias = this.filterBy(filterValue, this._medias);
 
         //create media content by MediaFactory
-        this._medias.map(media => {
+        this._medias.map((media, index) => {
 
             //creat media data by constructor
             let mediaData = new Media(media)
 
             //creat media content
-            mediaContent += new MediaFactory(mediaData, photographerName).render()
+            mediaContent += new MediaFactory(mediaData, photographerName, index).render()
 
            
         });
