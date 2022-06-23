@@ -6,6 +6,8 @@ class VideoMedia {
 
         //photographer name
         this._photographerName = photographerName
+        
+        this.tabindex = 0
     }
 
     //create video media HTML content
@@ -13,7 +15,7 @@ class VideoMedia {
         return `
                 <div>
                     <div class="over-flow-the-image">
-                        <video alt= "${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
+                        <video tabindex="${this.tabindex}" alt= "${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
                             Your browser does not support the HTML5 Video element.
                         </video>
                     </div>

@@ -5,16 +5,17 @@ class ImageMedia {
 
         //photographer name
         this._photographerName = photographerName
+
+        this.tabindex = 0
     }
 
     //create media image HTML content
     render() {
         return `
                 <div>
-                    <div class="over-flow-the-image">
-                        <img alt= "${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._image}" />
-                    </div>
-                    
+                <div class="over-flow-the-image">
+                <img tabindex="${this.tabindex}" alt="${this._media._title}" title="${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._image}" />
+            </div>
                     <div class="likes-title-photographer">
                         <p>${this._media._title}</p>
                         <p class="like-count">
