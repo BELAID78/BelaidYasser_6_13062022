@@ -1,9 +1,13 @@
 class PhotographerHeader {
     constructor(photographer) {
+        //photographer data
         this._photographer = photographer
+
+        //photographer header container
         this.$wrapper = document.querySelector('.photograph-header')
     }
 
+    //return photographer header as HTML content
     createPhotographerHeader() {
         return `
             <div class="">
@@ -19,6 +23,7 @@ class PhotographerHeader {
         `
     }
 
+    //render the photographer header content
     render() {
 
         this.$wrapper.innerHTML = this.createPhotographerHeader();
