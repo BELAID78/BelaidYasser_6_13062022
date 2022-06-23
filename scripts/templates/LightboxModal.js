@@ -67,7 +67,6 @@ class LightboxModal {
 
     hideLightBox() {
 
-        console.log(this)
         //add the body scroll
         document.body.classList.remove('has-open-lightbox')
         
