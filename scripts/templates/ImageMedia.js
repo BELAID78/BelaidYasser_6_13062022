@@ -1,9 +1,13 @@
 class ImageMedia {
     constructor(media, photographerName) {
+        //media data
         this._media = media
+
+        //photographer name
         this._photographerName = photographerName
     }
 
+    //create media image HTML content
     render() {
         return `
                 <div>

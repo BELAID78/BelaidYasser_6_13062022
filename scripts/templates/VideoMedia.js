@@ -1,9 +1,14 @@
 class VideoMedia {
     constructor(media, photographerName) {
+
+        //media data
         this._media = media
+
+        //photographer name
         this._photographerName = photographerName
     }
 
+    //create video media HTML content
     render() {
         return `
                 <div>
