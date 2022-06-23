@@ -24,8 +24,10 @@ class LightboxModal {
         //bind this operator to click prev handler
         this._showPrevElementHandler = this._showPrevElement.bind(this)
 
+        //bidn this operator to press next handler
         this.nextByKeyboardHandler = this.nextByKeyboardPress.bind(this)
 
+        //bidn this operator to press previous handler
         this.prevByKeyboardHandler = this.prevByKeyboardPress.bind(this)
 
     }
@@ -47,46 +49,31 @@ class LightboxModal {
 
     //add press right arrow keyboard to show next element
     nextByKeyboardPress() {
-        window.addEventListener('keydown', event => {
+        document.querySelector('.media-content').addEventListener('keydown', event => {
             if(event.key === 'ArrowRight') {
                 this._showNextElement()
             }
-        }, false)
+        })
     }
 
     //add press left arrow keyboard to show previous element
     prevByKeyboardPress() {
-        window.addEventListener('keydown', event => {
+        document.querySelector('.media-content').addEventListener('keydown', event => {
             if(event.key === 'ArrowLeft') {
                 this._showPrevElement()
             }
-        }, false)
+        })
     }
 
     //hide light box by press escape keyboard
     closeLightBoxByKeyboard() {
-        window.addEventListener('keydown', function(e) {
-
-            if(e.key == "Escape") {
-                //return scroll to the body HTML element
-                document.body.classList.remove('has-open-lightbox')
-                
-                //hide lightbox and empty it's HTML content
-                this._selectedCard = {
-                    opened      : false,
-                    htmlContent : ``,
-                    selectedId  : null
-                }
-
-                //empty the light box HTML content
-                document.querySelector('.lightbox-modal-body').innerHTML = this._selectedCard.htmlContent
-
-                //hide the light box
-                document.querySelector('.lightbox-modal').classList.remove('show')
+        document.querySelector('.media-content').addEventListener('keydown', event => {
+            if(event.key == "Escape") {
+                this.hideLightBox()
             }
         });
     }
-
+  
     //show the light box
     showLightBox(mediaId, index, directoryName) {
 
