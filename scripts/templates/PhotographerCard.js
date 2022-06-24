@@ -27,7 +27,7 @@ class PhotographerCard {
         //create photographer card html content
         const photographerCard = `
                                     <img alt= "${this._photographer._name} image" title="${this._photographer._name}" src="assets/photographers/${this._photographer._portrait}">
-                                    <h2 tabindex="${tab}" title="${this._photographer._name}">${this._photographer._name}</h2>
+                                    <a href="photographer.html?id=${this._photographer._id}" tabindex="${tab}"> <h2 title="${this._photographer._name}">${this._photographer._name}</h2></a>
                                     <div class="photographer_paragraph">
                                         <h4>${this._photographer._city}, ${this._photographer._country}</h4>
                                         <p>${this._photographer._tagline}</p>
