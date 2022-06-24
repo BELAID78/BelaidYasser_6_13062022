@@ -14,7 +14,7 @@ class ImageMedia {
         return `
                 <div>
                 <div class="over-flow-the-image">
-                <img tabindex="${this.tabindex}" alt="${this._media._title}" title="${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._image}" />
+                <a tabindex="${this.tabindex}" class="triger-click"><img alt="${this._media._title}" title="${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._image}" /></a>
             </div>
                     <div class="likes-title-photographer">
                         <p>${this._media._title}</p>

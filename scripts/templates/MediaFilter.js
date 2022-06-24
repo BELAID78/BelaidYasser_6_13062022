@@ -38,7 +38,28 @@ class MediaFilter {
         this._lightboxModal = new LightboxModal(this._medias);
 
     }
+    //when yyou press enter on any image of media you show the lightbox
+    makeImageShowLightBoxByPressEnter() {
 
+        //get all the images of medias
+        document.querySelectorAll('.triger-click').forEach(element => {
+
+            //add event keydown for the image
+            element.addEventListener('keydown', event => {
+
+                //show only if the key pressed is Enter
+                if(event.key === "Enter") {
+
+                    //get data needed to show light box
+                    let mediaId = element.querySelector('img').getAttribute('media-id'),
+                        mediaIndex = element.getAttribute('tabindex')
+
+                    //show lightbox
+                    this._lightboxModal.showLightBox(mediaId, mediaIndex, this._mediasDirectoryName);
+                }
+            })
+        })
+    }
     //create total likes HTML content
     createTotalLikes(totalLikes, price) {
 
@@ -215,8 +236,12 @@ class MediaFilter {
 
         //render the total likes
         document.querySelector('.total-likes').innerHTML = this._totalLikes
+    
+    //add press enter key to show light box of image medias
+    this.makeImageShowLightBoxByPressEnter()
     }
 
+    
     //add change event of filter
     selectFilterChange() {
         document.querySelector('select').addEventListener('change', (e) => {
@@ -277,5 +302,10 @@ class MediaFilter {
 
         //render the light box
         this._lightboxModal.render()
+
+        //add press enter key to show light box of image medias
+        this.makeImageShowLightBoxByPressEnter()
     }
 }
+
+    
