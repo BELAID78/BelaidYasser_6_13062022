@@ -27,7 +27,7 @@
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close Contact form" title="Close Contact form"/>
         </header>
         <h3 class="contact-photographer-name"></h3>
-				<form>
+				<form onsubmit="submitForm(event);">
 					<div class=formData>
 						<label for="first">Prénom</label>
 						<input class= "text-control" type="text" id="first" name="first" required/>
@@ -44,7 +44,7 @@
 						<label for="message">Message</label>
             <textarea name="message" id="message" cols="50" rows="4"></textarea>
 					</div>
-          <button class="contact_button" title="Send">Envoyer</button>
+          <button class="contact_button submit-Form" title="Send">Envoyer</button>
 				</form>
 			</div>
 		</div>
