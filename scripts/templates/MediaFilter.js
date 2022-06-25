@@ -222,7 +222,7 @@ class MediaFilter {
         //return the filter content
         return `
             <div class="select-container">
-                <select id="Order-by" title="Order by">
+                <select tabindex="3" id="Order-by" title="Order by">
                     ${options}
                 </select>
             </div>

@@ -16,7 +16,7 @@ class PhotographerHeader {
                 <p>${this._photographer._tagline}</p>
             </div>
             
-            <button title="contact me" class="contact_button" onclick="displayModal('${this._photographer._name}')">Contactez-moi</button>
+            <button tabindex="2" title="contact me" class="contact_button" onclick="displayModal('${this._photographer._name}')">Contactez-moi</button>
             <div>
                 <img alt="${this._photographer._name}" src="assets/photographers/${this._photographer._portrait}"/>
             
