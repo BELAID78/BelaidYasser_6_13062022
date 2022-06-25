@@ -1,12 +1,12 @@
 class ImageMedia {
-    constructor(media, photographerName) {
+    constructor(media, photographerName,index) {
         //media data
         this._media = media
 
         //photographer name
         this._photographerName = photographerName
 
-        this.tabindex = 0
+        this.tabindex = index
     }
 
     //create media image HTML content

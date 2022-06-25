@@ -7,7 +7,7 @@ class LightboxModal {
         //selected item properties
         this._selectedCard = {
             opened      : false,
-            selected    : '',
+            selected    : 0,
             htmlContent : '',
             selectedId  : null
         }
@@ -145,6 +145,7 @@ class LightboxModal {
                                 this._selectedCard.index + 1,
               nextMediaId   = this._medias[nextIndex].id;
 
+        
         this.showLightBox(nextMediaId, nextIndex, this._directoryName)
     }
 

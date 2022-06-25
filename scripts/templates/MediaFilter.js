@@ -51,7 +51,7 @@ class MediaFilter {
                 if(event.key === "Enter") {
 
                     //get data needed to show light box
-                    let mediaId = element.querySelector('img').getAttribute('media-id'),
+                    let mediaId = element.querySelector('img,video').getAttribute('media-id'),
                         mediaIndex = element.getAttribute('tabindex')
 
                     //show lightbox
