@@ -20,8 +20,8 @@ class ImageMedia {
                         <p>${this._media._title}</p>
                         <p class="like-count">
                             <span>${this._media._likes}</span>
-                            <i aria-label="Remove like" class="fas fa-heart solid"></i>
-                            <i aria-label="like" class="far fa-heart light"></i>
+                            <i tabindex="${this.tabindex + 1}" aria-label="likes" class="far fa-heart light"></i>
+                            
                         </p>
                     </div>
                 </div>

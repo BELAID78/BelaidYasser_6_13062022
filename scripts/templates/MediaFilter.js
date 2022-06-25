@@ -131,6 +131,7 @@ class MediaFilter {
         const photographerName  =   this.directoriesName.find(
                                         name => this._photographer._name.replace('-', ' ').includes(name)
                                     );
+        let tabindex = 0 ;
 
         //init media directory folder
         this._mediasDirectoryName = photographerName;
@@ -143,15 +144,15 @@ class MediaFilter {
         this._medias = this.filterBy(filterValue, this._medias);
 
         //create media content by MediaFactory
-        this._medias.map((media, index) => {
+        this._medias.map((media) => {
 
             //creat media data by constructor
             let mediaData = new Media(media)
 
             //creat media content
-            mediaContent += new MediaFactory(mediaData, photographerName, index).render()
+            mediaContent += new MediaFactory(mediaData, photographerName, tabindex).render()
 
-           
+           tabindex += 2
         });
 
             //render the total likes content to page
@@ -176,11 +177,17 @@ class MediaFilter {
                 if(parentLikeButton.classList.contains('active')) {
                     //if wee clicked before we sub 1 from like and total likes
                     parentLikeButton.classList.remove('active')
+                    //change like icnon style to Like
+                    e.target.classList.add('far')
+                    e.target.classList.remove('fas')
                     likeTotal.innerText = parseInt(likeTotal.innerText) - 1
                     this._totalLikes -= 1
                 }else {
                     //if we never clicked before we add 1 from like and total likes
                     parentLikeButton.classList.add('active')
+                    //change like icnon style to Unlike
+                    e.target.classList.remove('far')
+                    e.target.classList.add('fas')
                     likeTotal.innerText = parseInt(likeTotal.innerText) + 1
                     this._totalLikes += 1
                 }
