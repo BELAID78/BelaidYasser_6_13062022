@@ -1,15 +1,3 @@
-window.addEventListener('keydown', cycleTabOnlyInsideContactModal);
-
-window.addEventListener('keydown', (e) => {
-
-    if(!document.querySelector('.modal').classList.contains('active')) {
-        return false;
-    }
-
-    if(e.key === "Escape") {
-        closeModal()
-    }
-});
 function displayModal(name) {
     const modal = document.getElementById("contact_modal");
 
@@ -56,39 +44,4 @@ function submitForm(event) {
 
     //hide the modal
     closeModal()
-}
-
-
-function cycleTabOnlyInsideContactModal(e) {
-
-    if(!document.querySelector('.modal').classList.contains('active')) {
-        return false;
-    }
-
-    if(e.keyCode === 9) {
-        let focusable = document.querySelector('.modal').querySelectorAll('input, textarea, button');
-
-        if(focusable.length) {
-            let firstFocusableElement = focusable[0],
-                lastFocusableElement = focusable[focusable.length -1];
-
-            let shift = e.shiftKey;
-
-            if(shift) {
-
-                if(e.target === first) {
-                    lastFocusableElement.focus();
-                    e.preventDefault()
-                }
-
-            }else{
-
-                if(e.target === lastFocusableElement) {
-                    firstFocusableElement.focus();
-                    e.preventDefault()
-                }
-                
-            }
-        }
-    }
 }

@@ -37,6 +37,11 @@ class PhotographerPage {
 
         //render the filter and photographers medias
         new MediaFilter(medias, new Photographer(photographer)).render()
+     
+        //add contact modal template
+        let contactModal = new Contact()
+
+        contactModal.render()
     }
 }
 
