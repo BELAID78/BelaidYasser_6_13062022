@@ -1,12 +1,14 @@
 class ImageMedia {
-    constructor(media, photographerName,index) {
+    constructor(media, photographerName, tabindex, index) {
         //media data
         this._media = media
 
         //photographer name
         this._photographerName = photographerName
 
-        this.tabindex = index
+        this.tabindex = tabindex
+
+        this.index = index
     }
 
     //create media image HTML content
@@ -14,7 +16,7 @@ class ImageMedia {
         return `
                 <div>
                 <div class="over-flow-the-image">
-                <a tabindex="${this.tabindex}" class="triger-click"><img alt="${this._media._title}" title="${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._image}" /></a>
+                <a tabindex="${this.tabindex}" index=${this.index} class="triger-click"><img alt="${this._media._title}" title="${this._media._title}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._image}" /></a>
             </div>
                     <div class="likes-title-photographer">
                         <p>${this._media._title}</p>
