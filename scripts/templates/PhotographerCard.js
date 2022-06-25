@@ -26,13 +26,14 @@ class PhotographerCard {
 
         //create photographer card html content
         const photographerCard = `
+                                    <a href="photographer.html?id=${this._photographer._id}" tabindex="${tab}">
                                     <img alt= "${this._photographer._name} image" title="${this._photographer._name}" src="assets/photographers/${this._photographer._portrait}">
-                                    <a href="photographer.html?id=${this._photographer._id}" tabindex="${tab}"> <h2 title="${this._photographer._name}">${this._photographer._name}</h2></a>
+                                     <h2 title="${this._photographer._name}">${this._photographer._name}</h2>
                                     <div class="photographer_paragraph">
                                         <h4>${this._photographer._city}, ${this._photographer._country}</h4>
                                         <p>${this._photographer._tagline}</p>
                                         <p class="price">${this._photographer._price}€/jour</p>
-                                    </div>
+                                    </div></a>
                                 `
         //append the photographer card html content to container
         this.$wrapper.innerHTML = photographerCard
