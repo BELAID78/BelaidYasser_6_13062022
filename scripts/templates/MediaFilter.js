@@ -131,7 +131,7 @@ class MediaFilter {
         const photographerName  =   this.directoriesName.find(
                                         name => this._photographer._name.replace('-', ' ').includes(name)
                                     );
-        let tabindex = 0 ;
+        let tabindex = 3;
 
         //init media directory folder
         this._mediasDirectoryName = photographerName;
@@ -144,7 +144,7 @@ class MediaFilter {
         this._medias = this.filterBy(filterValue, this._medias);
 
         //create media content by MediaFactory
-        this._medias.map((media) => {
+        this._medias.map((media, index) => {
 
             //creat media data by constructor
             let mediaData = new Media(media)
@@ -152,11 +152,12 @@ class MediaFilter {
             //creat media content
             mediaContent += new MediaFactory(mediaData, photographerName, tabindex).render()
 
-           tabindex += 2
-        });
+            tabindex += 2;
 
-            //render the total likes content to page
-            this._totalLikes =
+        });
+        
+        //render the total likes content to page
+        this._totalLikes = 
         this.getTotalLikes()
 
         return mediaContent
@@ -167,42 +168,52 @@ class MediaFilter {
         //get all heart icons
         const LikeButtons = document.querySelectorAll('.like-count .fa-heart')
 
-        //zdd or remove 1 from likes and total likes
+        //Add or remove 1 from likes and total likes
         LikeButtons.forEach(likeButton => {
             //add click listener on heart icons
             likeButton.addEventListener('click', e => {
-                const   parentLikeButton = e.target.parentElement,
-                        likeTotal        = parentLikeButton.querySelector('span')
+                this.addLikeStyles(e)
+            })
 
-                if(parentLikeButton.classList.contains('active')) {
-                    //if wee clicked before we sub 1 from like and total likes
-                    parentLikeButton.classList.remove('active')
-                    //change like icnon style to Like
-                    e.target.classList.add('far')
-                    e.target.classList.remove('fas')
-                    likeTotal.innerText = parseInt(likeTotal.innerText) - 1
-                    this._totalLikes -= 1
-                }else {
-                    //if we never clicked before we add 1 from like and total likes
-                    parentLikeButton.classList.add('active')
-                    //change like icnon style to Unlike
-                    e.target.classList.remove('far')
-                    e.target.classList.add('fas')
-                    likeTotal.innerText = parseInt(likeTotal.innerText) + 1
-                    this._totalLikes += 1
+            likeButton.addEventListener('keydown', e => {
+                if(e.key === "Enter") {
+                    this.addLikeStyles(e)
                 }
-
-                //show total likes
-                document.querySelector('.total-likes').innerHTML = this._totalLikes
             })
         });
 
     }
 
-    //create <select> filter
-    createSelectFilter() {
-        let options = ``;
+    addLikeStyles(e) {
+        const   parentLikeButton = e.target.parentElement,
+        likeTotal        = parentLikeButton.querySelector('span')
 
+        if(parentLikeButton.classList.contains('active')) {
+            //if we clicked before we sub 1 from like and total likes
+                    parentLikeButton.classList.remove('active')
+
+                    //change like icnon style to Like
+            e.target.classList.add('far')
+            e.target.classList.remove('fas')
+
+            likeTotal.innerText = parseInt(likeTotal.innerText) - 1
+            this._totalLikes -= 1
+        }else {
+            //if we never clicked before we add 1 from like and total likes
+            parentLikeButton.classList.add('active')
+            //change like icnon style to Unlike
+            e.target.classList.remove('far')
+            e.target.classList.add('fas')
+            likeTotal.innerText = parseInt(likeTotal.innerText) + 1
+            this._totalLikes += 1
+        }
+
+        //show total likes
+        document.querySelector('.total-likes').innerHTML = this._totalLikes
+    }
+        //create <select> filter
+        createSelectFilter() {
+                let options = ``;
         //create filter
         this._select.options.forEach(option => {
             options += `<option value="${option}" ${this._select.selected === option ? 'selected' : ''} >${option}</option>`
